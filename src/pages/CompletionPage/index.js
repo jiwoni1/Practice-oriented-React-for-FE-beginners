@@ -1,4 +1,4 @@
-import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -8,6 +8,11 @@ import testWithComma from "../../stores/test/testWithComma";
 
 function CompletionPage(props) {
   const test = useRecoilValue(testWithComma);
+
+  axios.get("http://localhost:3001/surveys").then((res) => {
+    console.log("res", res.data);
+  });
+
   return (
     <CompletionPageWrapper>
       <div>{test} </div>
