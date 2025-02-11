@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 
 import surveyState from "../stores/survey/surveyState";
 import useStep from "./useStep";
@@ -11,7 +11,7 @@ function useCurrentQuestion() {
   const surveyId = useSurveyId();
 
   // Recoil에서 가져오기
-  const [surveyData, setSurvey] = useRecoilState(surveyState);
+  const surveyData = useRecoilValue(surveyState);
   const questions = surveyData?.questions || [];
 
   // useEffect(() => {
